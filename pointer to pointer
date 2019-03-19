@@ -1,0 +1,71 @@
+Disassembly of section .mytext:
+
+00000000 <func-0x8>:
+   0:   20000100        andcs   r0, r0, r0, lsl #2
+   4:   00000049        andeq   r0, r0, r9, asr #32
+
+00000008 <func>:
+   8:   b480            push    {r7}
+   a:   b083            sub     sp, #12
+   c:   af00            add     r7, sp, #0
+   e:   6078            str     r0, [r7, #4]
+  10:   687b            ldr     r3, [r7, #4]
+  12:   4a04            ldr     r2, [pc, #16]   ; (24 <func+0x1c>)
+  14:   601a            str     r2, [r3, #0]
+  16:   4618            mov     r0, r3
+  18:   370c            adds    r7, #12
+  1a:   46bd            mov     sp, r7
+  1c:   f85d 7b04       ldr.w   r7, [sp], #4
+  20:   4770            bx      lr
+  22:   bf00            nop
+  24:   0000007c        andeq   r0, r0, ip, ror r0
+
+00000028 <funD>:
+  28:   b480            push    {r7}
+  2a:   b083            sub     sp, #12
+  2c:   af00            add     r7, sp, #0
+  2e:   6078            str     r0, [r7, #4]
+  30:   687b            ldr     r3, [r7, #4]
+  32:   4a04            ldr     r2, [pc, #16]   ; (44 <funD+0x1c>)
+  34:   601a            str     r2, [r3, #0]
+  36:   4618            mov     r0, r3
+  38:   370c            adds    r7, #12
+  3a:   46bd            mov     sp, r7
+  3c:   f85d 7b04       ldr.w   r7, [sp], #4
+  40:   4770            bx      lr
+  42:   bf00            nop
+  44:   00000080        andeq   r0, r0, r0, lsl #1
+
+00000048 <reset_handler>:
+  48:   b580            push    {r7, lr}
+  4a:   b086            sub     sp, #24
+  4c:   af00            add     r7, sp, #0
+  4e:   2301            movs    r3, #1
+  50:   60bb            str     r3, [r7, #8]
+  52:   2303            movs    r3, #3
+  54:   607b            str     r3, [r7, #4]
+  56:   2300            movs    r3, #0
+  58:   617b            str     r3, [r7, #20]
+  5a:   2300            movs    r3, #0
+  5c:   613b            str     r3, [r7, #16]
+  5e:   f107 0308       add.w   r3, r7, #8
+  62:   60fb            str     r3, [r7, #12]
+  64:   1d3b            adds    r3, r7, #4
+  66:   603b            str     r3, [r7, #0]
+  68:   463b            mov     r3, r7
+  6a:   4618            mov     r0, r3
+  6c:   f7ff ffdc       bl      28 <funD>
+  70:   683b            ldr     r3, [r7, #0]
+  72:   681b            ldr     r3, [r3, #0]
+  74:   613b            str     r3, [r7, #16]
+  76:   3718            adds    r7, #24
+  78:   46bd            mov     sp, r7
+  7a:   bd80            pop     {r7, pc}
+
+Disassembly of section .data:
+
+0000007c <B>:
+  7c:   00000005        andeq   r0, r0, r5
+
+00000080 <D>:
+  80:   00000005        andeq   r0, r0, r5
